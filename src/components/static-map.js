@@ -1,3 +1,7 @@
+/* eslint-disable block-scoped-var */
+// eslint-disable-next-line
+/* global mapboxgl */
+
 // Copyright (c) 2015 Uber Technologies, Inc.
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,9 +34,9 @@ import Immutable from 'immutable';
 import isBrowser from '../utils/is-browser';
 import {PerspectiveMercatorViewport} from 'viewport-mercator-project';
 
-let mapboxgl = null;
-if (isBrowser) {
-  mapboxgl = require('mapbox-gl');
+if (!isBrowser) {
+  // eslint-disable-next-line
+  var mapboxgl = null;
 }
 
 function noop() {}
