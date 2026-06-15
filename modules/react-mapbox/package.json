@@ -22,6 +22,18 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
+    },
+    "./esm": {
+      "import": "./dist/esm.js",
+      "require": "./dist/esm.cjs",
+      "types": "./dist/esm.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "esm": [
+        "./dist/esm.d.ts"
+      ]
     }
   },
   "files": [

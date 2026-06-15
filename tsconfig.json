@@ -21,7 +21,9 @@
     "paths": {
       "react-map-gl": ["modules/main/src"],
       "@vis.gl/react-mapbox": ["modules/react-mapbox/src"],
-      "@vis.gl/react-maplibre": ["modules/react-maplibre/src"]
+      "@vis.gl/react-mapbox/esm": ["modules/react-mapbox/src/esm"],
+      "@vis.gl/react-maplibre": ["modules/react-maplibre/src"],
+      "mapbox-gl/esm": ["modules/react-mapbox/src/mapbox-gl-esm"]
     },
     "plugins": [
       {

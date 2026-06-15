@@ -21,6 +21,11 @@
       "require": "./dist/mapbox.cjs",
       "import": "./dist/mapbox.js"
     },
+    "./mapbox-esm": {
+      "types": "./dist/mapbox-esm.d.ts",
+      "require": "./dist/mapbox-esm.cjs",
+      "import": "./dist/mapbox-esm.js"
+    },
     "./maplibre": {
       "types": "./dist/maplibre.d.ts",
       "require": "./dist/maplibre.cjs",
@@ -36,6 +41,9 @@
     "*": {
       "mapbox": [
         "./dist/mapbox.d.ts"
+      ],
+      "mapbox-esm": [
+        "./dist/mapbox-esm.d.ts"
       ],
       "maplibre": [
         "./dist/maplibre.d.ts"

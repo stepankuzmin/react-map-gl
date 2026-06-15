@@ -36,6 +36,8 @@ import * as React from 'react';
 import Map from 'react-map-gl/mapbox';
 // If using with mapbox-gl v1:
 // import Map from 'react-map-gl/mapbox-legacy';
+// To load mapbox-gl's ESM build by default (requires mapbox-gl v3.23+):
+// import Map from 'react-map-gl/mapbox-esm';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 function App() {

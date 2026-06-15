@@ -34,7 +34,11 @@ export type MapProps = MapInitOptions &
     children?: any;
   };
 
-function _Map(props: MapProps, ref: React.Ref<MapRef>) {
+function _Map(
+  props: MapProps,
+  ref: React.Ref<MapRef>,
+  loadMapLib: () => Promise<MapLib | {default: MapLib}>
+) {
   const mountedMapsContext = useContext(MountedMapsContext);
   const [mapInstance, setMapInstance] = useState<Mapbox>(null);
   const containerRef = useRef();
@@ -46,7 +50,7 @@ function _Map(props: MapProps, ref: React.Ref<MapRef>) {
     let isMounted = true;
     let mapbox: Mapbox;
 
-    Promise.resolve(mapLib || import('mapbox-gl'))
+    Promise.resolve(mapLib || loadMapLib())
       .then((module: MapLib | {default: MapLib}) => {
         if (!isMounted) {
           return;
@@ -133,4 +137,12 @@ function _Map(props: MapProps, ref: React.Ref<MapRef>) {
   );
 }
 
-export const Map = React.forwardRef(_Map);
+export function createMap(
+  loadMapLib: () => Promise<MapLib | {default: MapLib}> = () => import('mapbox-gl')
+) {
+  return React.forwardRef<MapRef, MapProps>(function Map(props, ref) {
+    return _Map(props, ref, loadMapLib);
+  });
+}
+
+export const Map = createMap();
